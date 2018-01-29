@@ -2,9 +2,14 @@ import Layout from '../components/MyLayout.js'
 import fetch from 'isomorphic-unfetch'
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 
-const imageStyle = { //TODO: make weight proportional to image height
-  height: '90vh',
-  weight: 'auto'
+const imageStyle = {
+  maxHeight: '90vh',
+  minWidth: '0%',
+  width: 'auto',
+  marginLeft: 'auto',
+	marginRight: 'auto',
+	display: 'block'
+  
 }
 const Post =  (props) => (
     <Layout>
@@ -12,6 +17,7 @@ const Post =  (props) => (
         <CardMedia
           overlay={<CardTitle title={props.show.name} subtitle={props.show.summary.replace(/<[/]?p>/g, '')}/>}
         >
+
           <img src={props.show.image.original} style={imageStyle}/>
         </CardMedia>
       </Card>
